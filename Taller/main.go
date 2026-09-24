@@ -87,7 +87,7 @@ func opcionEstudiantes() {
 // Opción 2 suma consecutiva de todos los números desde el 1 hasta n
 func opcionSumaN() {
 	var n int
-	fmt.Print("\nIngrese un número entero (n): ")
+	fmt.Print("\nIngrese un número entero: ")
 	fmt.Scan(&n)
 
 	suma := 0
