@@ -3,16 +3,19 @@ package main
 import (
 	"Taller/Herramientas/conversor"
 	"Taller/Herramientas/vocales"
+	"bufio"
 	"fmt"
+	"os"
 )
 
 func main() {
 	var opcion string
 
 	for {
-		fmt.Println("\n1. Conversor de monedas")
+		fmt.Println("=======================Menú de opciones=======================")
+		fmt.Println("1. Conversor de monedas")
 		fmt.Println("2. Contador de vocales")
-		fmt.Println("0 o salir")
+		fmt.Println("Presione 0 o escriba 'salir' para terminar el programa")
 		fmt.Print("Elija una opción: ")
 		fmt.Scanln(&opcion)
 
@@ -23,18 +26,27 @@ func main() {
 		switch opcion {
 		case "1":
 			var dolares float64
-			var moneda string
+			var tipoMoneda int
+
 			fmt.Print("Ingrese dólares: ")
 			fmt.Scanln(&dolares)
-			fmt.Print("Ingrese moneda (Euros, LB, Won, BTC): ")
-			fmt.Scanln(&moneda)
 
-			conversor.ConvertirMoneda(dolares, moneda)
+			fmt.Println("\nSeleccione la moneda destino:")
+			fmt.Println("1. Euros")
+			fmt.Println("2. LB (Libras Esterlinas)")
+			fmt.Println("3. Won (Sur Coreano)")
+			fmt.Println("4. BTC")
+			fmt.Print("Elija una opción (1-4): ")
+			fmt.Scanln(&tipoMoneda)
+
+			conversor.ConvertirMoneda(dolares, tipoMoneda)
 
 		case "2":
-			var frase string
-			fmt.Print("Ingrese la frase (una sola palabra): ")
-			fmt.Scanln(&frase)
+			fmt.Print("Ingrese la frase: ")
+			fmt.Scanln()
+
+			lector := bufio.NewReader(os.Stdin)
+			frase, _ := lector.ReadString('\n')
 
 			vocales.ContarVocales(frase)
 		}

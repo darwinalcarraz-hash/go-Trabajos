@@ -7,15 +7,15 @@ func ContarVocales(frase string) {
 
 	for _, letra := range frase {
 		switch letra {
-		case 'a', 'A':
+		case 'a', 'A', 'á', 'Á', 'ä', 'Ä':
 			a++
-		case 'e', 'E':
+		case 'e', 'E', 'é', 'É', 'ë', 'Ë':
 			e++
-		case 'i', 'I':
+		case 'i', 'I', 'í', 'Í', 'ï', 'Ï':
 			i++
-		case 'o', 'O':
+		case 'o', 'O', 'ó', 'Ó', 'ö', 'Ö':
 			o++
-		case 'u', 'U':
+		case 'u', 'U', 'ú', 'Ú', 'ü', 'Ü':
 			u++
 		}
 	}
