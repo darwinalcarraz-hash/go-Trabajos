@@ -2,29 +2,13 @@ package main
 
 import "fmt"
 
-func determinarGanador(votacion map[string]int) {
-	mayorVotos := -1
-	actividadGanadora := ""
-
-	for actividad, votos := range votacion {
-		if votos > mayorVotos {
-			mayorVotos = votos
-			actividadGanadora = actividad
-		}
-	}
-
-	fmt.Println("\n=========================================")
-	fmt.Println("La actividad ganadora es: ", actividadGanadora, " con ", mayorVotos, " votos")
-	fmt.Println("=========================================")
-}
-
 func main() {
-	votosActividades := map[string]int{
-		"deportes":    0,
-		"videojuegos": 0,
-		"cine":        0,
-		"música":      0,
-	}
+	votosActividades := make(map[string]int)
+
+	votosActividades["Deportes"] = 0
+	votosActividades["Videojuegos"] = 0
+	votosActividades["Cine"] = 0
+	votosActividades["Música"] = 0
 
 	fmt.Println("=== REGISTRO DE VOTOS (5 ESTUDIANTES) ===")
 
@@ -40,22 +24,37 @@ func main() {
 
 		switch seleccion {
 		case 1:
-			votosActividades["deportes"]++
+			votosActividades["Deportes"]++
 		case 2:
-			votosActividades["videojuegos"]++
+			votosActividades["Videojuegos"]++
 		case 3:
-			votosActividades["cine"]++
+			votosActividades["Cine"]++
 		case 4:
-			votosActividades["música"]++
+			votosActividades["Música"]++
 		default:
 			fmt.Println("Opción no válida. Voto perdido.")
 		}
 	}
 
 	fmt.Println("\n======= RESULTADOS DE LA VOTACIÓN =======")
-	for actividad, totalVotos := range votosActividades {
-		fmt.Println("- ", actividad, ": ", totalVotos, " votos")
+	
+	for key, value := range votosActividades {
+		fmt.Println(key, ":", value, "votos")
 	}
 
-	determinarGanador(votosActividades)
+	fmt.Println("\nLa actividad con mayor número de votos es:", DeterminarGanador(votosActividades))
+}
+
+func DeterminarGanador(votacion map[string]int) string {
+	mayorVotos := -1
+	actividadGanadora := ""
+
+	for key, value := range votacion {
+		if value > mayorVotos {
+			mayorVotos = value
+			actividadGanadora = key
+		}
+	}
+	
+	return actividadGanadora
 }
