@@ -14,7 +14,8 @@ type Medicine struct {
 }
 
 // Getters y Setters para Medicine con validaciones
-func (m Medicine) GetName() string { return m.name }
+func (m Medicine) GetName() string { 
+	return m.name }
 func (m *Medicine) SetName(name string) error {
 	if name == "" {
 		return errors.New("ERROR: el nombre no puede estar vacío")
@@ -23,7 +24,8 @@ func (m *Medicine) SetName(name string) error {
 	return nil
 }
 
-func (m Medicine) GetManufacturer() string { return m.manufacturer }
+func (m Medicine) GetManufacturer() string { 
+	return m.manufacturer }
 func (m *Medicine) SetManufacturer(manufacturer string) error {
 	if manufacturer == "" {
 		return errors.New("ERROR: el fabricante no puede estar vacío")
@@ -32,7 +34,8 @@ func (m *Medicine) SetManufacturer(manufacturer string) error {
 	return nil
 }
 
-func (m Medicine) GetManufactureDate() string { return m.manufactureDate }
+func (m Medicine) GetManufactureDate() string { 
+	return m.manufactureDate }
 func (m *Medicine) SetManufactureDate(manufactureDate string) error {
 	if manufactureDate == "" {
 		return errors.New("ERROR: la fecha no puede estar vacía")
@@ -41,7 +44,8 @@ func (m *Medicine) SetManufactureDate(manufactureDate string) error {
 	return nil
 }
 
-func (m Medicine) GetShelfLife() int { return m.shelfLife }
+func (m Medicine) GetShelfLife() int { 
+	return m.shelfLife }
 func (m *Medicine) SetShelfLife(shelfLife int) error {
 	if shelfLife <= 0 {
 		return errors.New("ERROR: la vida útil debe ser un número positivo")
